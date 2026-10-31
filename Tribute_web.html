@@ -1,0 +1,1114 @@
+
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tim Burton Tribute Page</title>
+
+<link href="https://fonts.googleapis.com/css?family=Squada+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.music-section {
+    background: #303030;
+    padding: 25px;
+    margin: 40px auto;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.music-section iframe {
+    width: 100%;
+    max-width: 560px;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 10px;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #232323;
+    color: #cdcdcd;
+    font-family: "Avenir Next", "Avenir", sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+#main {
+    width: calc(100% - 40px);
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+#title {
+    text-align: center;
+    margin: 40px 0;
+}
+
+#title h1 {
+    font-size: 55px;
+    color: white;
+    letter-spacing: 3px;
+}
+
+#title p {
+    color: #aaa;
+    font-size: 18px;
+}
+
+#img-div {
+    background: #303030;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+#image {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: auto;
+    border-radius: 10px;
+}
+
+#img-caption {
+    margin-top: 12px;
+    color: #bbb;
+    font-style: italic;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 30px;
+    margin: 55px 0 25px;
+    color: white;
+}
+
+.section-title span {
+    color: #10a37f;
+}
+
+#tribute-info {
+    width: 65%;
+    margin: 0 auto;
+}
+
+.about {
+    background: #303030;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 35px;
+}
+
+.about p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.movies {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.movie-card {
+    background: #303030;
+    padding: 22px;
+    border-radius: 12px;
+    border: 1px solid #444;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.movie-card:hover {
+    transform: translateY(-6px);
+    border-color: #10a37f;
+    background: #383838;
+}
+
+.movie-card:focus-visible {
+    outline: 3px solid #10a37f;
+}
+
+.movie-card h3 {
+    color: #10a37f;
+    margin-bottom: 5px;
+}
+
+.movie-card p {
+    font-size: 14px;
+}
+
+.movie-card .year {
+    color: #999;
+    font-size: 13px;
+}
+
+.movie-card::after {
+    content: "Klikni za Google pretragu ↗";
+    display: block;
+    color: #10a37f;
+    font-size: 11px;
+    margin-top: 12px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.gallery figure {
+    background: #303030;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.gallery figcaption {
+    text-align: center;
+    padding: 10px;
+}
+
+.timeline {
+    background: #303030;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.timeline ul {
+    padding-left: 25px;
+}
+
+.timeline li {
+    margin: 12px 0;
+}
+
+.timeline strong {
+    color: #10a37f;
+}
+
+.timeline-quote {
+    margin-top: 25px;
+    padding: 20px;
+    border-left: 3px solid #10a37f;
+    background: #383838;
+}
+
+.timeline-quote figcaption {
+    text-align: right;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    background: #303030;
+    padding: 30px;
+    margin-top: 60px;
+    border-radius: 12px;
+}
+
+footer p {
+    margin: 15px 0;
+}
+
+footer a:not(.ghost-button) {
+    color: #10a37f;
+    text-decoration: none;
+}
+
+footer a:not(.ghost-button):hover {
+    text-decoration: underline;
+}
+
+/* ANIMATED MENU */
+
+.animated-menu-container {
+    max-width: 600px;
+    margin: 30px auto;
+    background: #d8ecf2;
+    color: rgba(67, 83, 99, 1);
+    font-family: "Lato", sans-serif;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.animated-menu-container ul {
+    list-style: none;
+}
+
+.animated-menu-container li {
+    margin: 0;
+}
+
+.animated-menu-container li a {
+    display: block;
+    position: relative;
+    padding: .75rem 1rem 1rem;
+    text-decoration: none;
+    color: rgba(67, 83, 99, 1);
+    cursor: pointer;
+    transition: transform .22s, box-shadow .22s;
+    user-select: none;
+    box-shadow: 0 0 0 -.25rem rgba(0, 0, 0, .1);
+}
+
+.animated-menu-container ul:hover a {
+    opacity: .8;
+    transform: scale(.97);
+}
+
+.animated-menu-container ul a:hover {
+    outline: 0;
+    box-shadow: 0 .5rem 0 -.25rem rgba(0, 0, 0, .1);
+    opacity: 1;
+    transform: scale(1.03);
+    transition: transform .088s, box-shadow .088s;
+    z-index: 1;
+}
+
+.animated-menu-container .menu li:nth-child(1) {
+    background-color: #95c5db;
+}
+
+.animated-menu-container .menu li:nth-child(2) {
+    background-color: #94c1db;
+}
+
+.animated-menu-container .menu li:nth-child(3) {
+    background-color: #94bddb;
+}
+
+.animated-menu-container .menu li:nth-child(4) {
+    background-color: #94b9db;
+}
+
+.animated-menu-container .menu li:nth-child(5) {
+    background-color: #94b5db;
+}
+
+.animated-menu-container .menu li:nth-child(6) {
+    background-color: #94b2db;
+}
+
+.animated-menu-container .animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes flipInX {
+    0% {
+        transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+    40% {
+        transform: perspective(400px) rotateX(-10deg);
+    }
+    70% {
+        transform: perspective(400px) rotateX(10deg);
+    }
+    100% {
+        transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+.animated-menu-container .flipInX {
+    backface-visibility: visible !important;
+    animation-name: flipInX;
+}
+
+/* HAMBURGER MENU */
+
+.hamburger-section {
+    min-height: 90px;
+    position: relative;
+    margin: 30px 0 50px;
+}
+
+#menuToggle {
+    display: block;
+    position: relative;
+    width: 40px;
+    margin: 20px auto;
+    z-index: 20;
+    user-select: none;
+}
+
+#menuToggle a {
+    text-decoration: none;
+    color: #232323;
+    transition: color .3s ease;
+}
+
+#menuToggle a:hover {
+    color: tomato;
+}
+
+#menuToggle input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 22;
+}
+
+#menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #cdcdcd;
+    border-radius: 3px;
+    z-index: 21;
+    transform-origin: 4px 0;
+    transition: transform .5s cubic-bezier(.77,.2,.05,1),
+                background .5s cubic-bezier(.77,.2,.05,1),
+                opacity .55s ease;
+}
+
+#menuToggle span:first-of-type {
+    transform-origin: 0 0;
+}
+
+#menuToggle span:last-of-type {
+    transform-origin: 0 100%;
+}
+
+#menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #232323;
+}
+
+#menuToggle input:checked ~ span:nth-of-type(2) {
+    opacity: 0;
+    transform: rotate(0) scale(.2, .2);
+}
+
+#menuToggle input:checked ~ span:nth-of-type(3) {
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 280px;
+    max-height: 80vh;
+    margin: -25px 0 0 -30px;
+    padding: 80px 30px 30px;
+    overflow-y: auto;
+    background: #ededed;
+    list-style: none;
+    transform-origin: 0 0;
+    transform: translateX(-120%);
+    transition: transform .5s cubic-bezier(.77,.2,.05,1);
+    z-index: 19;
+}
+
+#menu li {
+    padding: 10px 0;
+    font-size: 22px;
+}
+
+#menuToggle input:checked ~ ul {
+    transform: translateX(0);
+}
+
+/* SELECT DROPDOWN MENU */
+
+.select-demo {
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+    margin: 30px auto;
+    background: #303030;
+    border-radius: 10px;
+}
+
+.select-demo .select {
+    --background-select: linear-gradient(to left, #34495e 3rem, #2c3e50 3rem);
+    position: relative;
+    display: flex;
+    width: min(20rem, 90vw);
+    background: var(--background-select);
+    border-radius: .25rem;
+    overflow: hidden;
+}
+
+.select-demo select {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: white;
+    flex: 1;
+    padding: 1em;
+    cursor: pointer;
+}
+
+.select-demo select option {
+    background: #2c3e50;
+    color: white;
+}
+
+.select-demo .select::after {
+    content: "▼";
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    color: white;
+    transition: .25s all ease;
+    pointer-events: none;
+}
+
+.select-demo .select:hover::after {
+    color: #f39c12;
+    animation: selectBounce .5s infinite;
+}
+
+@keyframes selectBounce {
+    25% {
+        transform: translateY(5px);
+    }
+    75% {
+        transform: translateY(-5px);
+    }
+}
+
+/* SIDEBAR TOGGLE MENU */
+
+.sidebar-section {
+    position: relative;
+    height: 60px;
+    margin: 30px 0 55px;
+    z-index: 10;
+}
+
+.sidebar-header {
+    position: absolute;
+    inset: 0;
+    height: 60px;
+    background-image: linear-gradient(
+        to bottom,
+        #fc466b, #f83385, #eb2ba2, #d235c0,
+        #aa47dc, #8369f1, #5481fd, #0094ff,
+        #00b3ff, #00ceff, #00e6fd, #5ffbf1
+    );
+    border-radius: 8px;
+    z-index: 10;
+}
+
+#sidebarCheck {
+    display: none;
+}
+
+.sidebarIconToggle {
+    position: absolute;
+    z-index: 99;
+    top: 20px;
+    left: 18px;
+    height: 22px;
+    width: 22px;
+    cursor: pointer;
+}
+
+.sidebarIconToggle .spinner {
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: white;
+    transition: all .3s;
+}
+
+.sidebarIconToggle .horizontal {
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+
+.sidebarIconToggle .diagonal.part-1 {
+    position: relative;
+    float: left;
+}
+
+.sidebarIconToggle .diagonal.part-2 {
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+
+#sidebarMenu {
+    height: 350px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 250px;
+    transform: translateX(-260px);
+    transition: transform 250ms ease-in-out;
+    background-image: linear-gradient(
+        to right top,
+        #fc466b, #f83385, #eb2ba2, #d235c0,
+        #aa47dc, #8369f1, #5481fd, #0094ff,
+        #00b3ff, #00ceff, #00e6fd, #5ffbf1
+    );
+    z-index: 9;
+}
+
+.sidebarMenuInner {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebarMenuInner li {
+    list-style: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.sidebarMenuInner li a {
+    color: white;
+    text-decoration: none;
+}
+
+#sidebarCheck:checked ~ #sidebarMenu {
+    transform: translateX(0);
+}
+
+#sidebarCheck:checked ~ .sidebarIconToggle > .horizontal {
+    opacity: 0;
+}
+
+#sidebarCheck:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+    transform: rotate(135deg);
+    margin-top: 8px;
+}
+
+#sidebarCheck:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+    transform: rotate(-135deg);
+    margin-top: -9px;
+}
+
+/* ANIMATED GRADIENT GHOST BUTTON */
+
+.ghost-button {
+    display: block;
+    position: relative;
+    width: 220px;
+    height: 70px;
+    margin: 30px auto;
+    z-index: 1;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 2px;
+    line-height: 70px;
+    font-family: "Squada One", cursive;
+    font-size: 28px;
+}
+
+.ghost-button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background: linear-gradient(120deg, #6559ae, #ff7159, #6559ae);
+    background-size: 400% 400%;
+    clip-path: polygon(
+        0% 100%, 4px 100%, 4px 4px, 216px 4px,
+        216px 66px, 4px 66px, 4px 100%,
+        100% 100%, 100% 0%, 0% 0%
+    );
+    animation: ghostGradient 3s ease-in-out infinite,
+               ghostBorder 1s forwards ease-in-out reverse;
+}
+
+.ghost-button > span {
+    display: block;
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(120deg, #6559ae, #ff7159, #6559ae);
+    background-size: 400% 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: ghostGradient 3s ease-in-out infinite;
+}
+
+@keyframes ghostGradient {
+    0% {
+        background-position: 14% 0%;
+    }
+    50% {
+        background-position: 87% 100%;
+    }
+    100% {
+        background-position: 14% 0%;
+    }
+}
+
+@keyframes ghostBorder {
+    0% {
+        clip-path: polygon(0% 100%, 4px 100%, 4px 4px, 216px 4px, 216px 66px, 4px 66px, 4px 100%, 100% 100%, 100% 0%, 0% 0%);
+    }
+    25% {
+        clip-path: polygon(0% 100%, 4px 100%, 4px 4px, 216px 4px, 216px 66px, 216px 66px, 216px 100%, 100% 100%, 100% 0%, 0% 0%);
+    }
+    50% {
+        clip-path: polygon(0% 100%, 4px 100%, 4px 4px, 216px 4px, 216px 4px, 216px 4px, 216px 4px, 216px 4px, 100% 0%, 0% 0%);
+    }
+    75% {
+        clip-path: polygon(0% 100%, 4px 100%, 4px 4px, 4px 4px, 4px 4px, 4px 4px, 4px 4px, 4px 4px, 4px 0%, 0% 0%);
+    }
+    100% {
+        clip-path: polygon(0% 100%, 4px 100%, 4px 100%, 4px 100%, 4px 100%, 4px 100%, 4px 100%, 4px 100%, 4px 100%, 0% 100%);
+    }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+    #tribute-info {
+        width: 90%;
+    }
+
+    .movies {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #title h1 {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 550px) {
+    #main {
+        width: calc(100% - 24px);
+    }
+
+    #tribute-info {
+        width: 100%;
+    }
+
+    .movies,
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    #title h1 {
+        font-size: 35px;
+    }
+
+    .gallery img {
+        height: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main id="main">
+
+<header id="title">
+    <h1>Tim Burton</h1>
+    <p>A master of whimsical gothic dark fantasy</p>
+</header>
+
+<figure id="img-div">
+    <img
+        src="https://s0.rbk.ru/v6_top_pics/media/img/2/32/347199185492322.webp"
+        alt="Tim Burton"
+        id="image"
+    >
+    <figcaption id="img-caption">
+        Tim Burton – jedan od najpoznatijih filmskih redatelja.
+    </figcaption>
+</figure>
+
+<h2 class="section-title">Animated Menu</h2>
+
+<nav class="animated-menu-container">
+    <ul class="menu animated flipInX">
+        <li><a href="#about">O Timu Burtonu</a></li>
+        <li><a href="#movies">Filmovi</a></li>
+        <li><a href="#gallery">Galerija</a></li>
+        <li><a href="#career">Karijera</a></li>
+        <li><a href="#footer">Kontakt</a></li>
+    </ul>
+</nav>
+
+<h2 class="section-title">Hamburger Menu</h2>
+
+<div class="hamburger-section">
+    <nav role="navigation">
+        <div id="menuToggle">
+            <input type="checkbox" id="hamburgerCheck">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <ul id="menu">
+                <li><a href="#about">O Timu Burtonu</a></li>
+                <li><a href="#movies">Filmovi</a></li>
+                <li><a href="#gallery">Galerija</a></li>
+                <li><a href="#career">Karijera</a></li>
+                <li><a href="#footer">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<h2 class="section-title">Select Dropdown Menu</h2>
+
+<div class="select-demo">
+    <div class="select">
+        <select id="sectionSelect">
+            <option value="">Izaberi sekciju</option>
+            <option value="about">O Timu Burtonu</option>
+            <option value="movies">Filmovi</option>
+            <option value="gallery">Galerija</option>
+            <option value="career">Karijera</option>
+            <option value="footer">Kontakt</option>
+        </select>
+    </div>
+</div>
+
+<h2 class="section-title">Sidebar Toggle Menu</h2>
+
+<div class="sidebar-section">
+
+    <div class="sidebar-header"></div>
+
+    <input type="checkbox" id="sidebarCheck">
+
+    <label for="sidebarCheck" class="sidebarIconToggle">
+        <div class="spinner diagonal part-1"></div>
+        <div class="spinner horizontal"></div>
+        <div class="spinner diagonal part-2"></div>
+    </label>
+
+    <div id="sidebarMenu">
+        <ul class="sidebarMenuInner">
+            <li><a href="#about">O Timu Burtonu</a></li>
+            <li><a href="#movies">Filmovi</a></li>
+            <li><a href="#gallery">Galerija</a></li>
+            <li><a href="#career">Karijera</a></li>
+            <li><a href="#footer">Kontakt</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div id="tribute-info">
+
+    <h2 class="section-title" id="about">
+        <span>Ko je</span> Tim Burton?
+    </h2>
+
+    <section class="about">
+        <p>
+            Tim Burton je američki filmski redatelj, producent,
+            scenarista i animator, rođen 25. augusta 1958.
+            godine u Burbanku u Kaliforniji.
+        </p>
+
+        <p>
+            Poznat je po svom neobičnom i prepoznatljivom
+            filmskom stilu koji uključuje mračne atmosfere,
+            neobične likove, fantaziju, gotičku arhitekturu
+            i pomalo jezive, ali često smiješne priče.
+        </p>
+
+        <p>
+            Njegovi filmovi često prikazuju ljude koji su
+            drugačiji od ostalih i koji pokušavaju pronaći
+            svoje mjesto u svijetu.
+        </p>
+
+        <p>
+            Tim Burton često sarađuje s glumcem Johnnyjem Deppom,
+            a njegove filmove karakteriziraju kreativnost,
+            crni humor i nevjerovatna mašta.
+        </p>
+    </section>
+
+    <h2 class="section-title" id="movies">
+        Njegovi <span>najpoznatiji filmovi</span>
+    </h2>
+
+    <section class="movies">
+
+        <article class="movie-card" tabindex="0">
+            <h3>Beetlejuice</h3>
+            <span class="year">1988</span>
+            <p>Horor-komedija o neobičnom duhu Beetlejuiceu.</p>
+        </article>
+
+        <article class="movie-card" tabindex="0">
+            <h3>Batman</h3>
+            <span class="year">1989</span>
+            <p>Burtonova mračna verzija Gothama i priča o Batmanu.</p>
+        </article>
+
+        <article class="movie-card" tabindex="0">
+            <h3>Edward Scissorhands</h3>
+            <span class="year">1990</span>
+            <p>Dirljiva priča o Edwardu koji umjesto ruku ima makaze.</p>
+        </article>
+
+        <article class="movie-card" tabindex="0">
+            <h3>Sleepy Hollow</h3>
+            <span class="year">1999</span>
+            <p>Misteriozna priča o Jahaču bez glave.</p>
+        </article>
+
+        <article class="movie-card" tabindex="0">
+            <h3>Charlie and the Chocolate Factory</h3>
+            <span class="year">2005</span>
+            <p>Fantastična priča o Willyju Wonki i fabrici čokolade.</p>
+        </article>
+
+        <article class="movie-card" tabindex="0">
+            <h3>Corpse Bride</h3>
+            <span class="year">2005</span>
+            <p>Animirana gotička bajka o neobičnoj nevjesti.</p>
+        </article>
+
+        <article class="movie-card" tabindex="0">
+            <h3>Sweeney Todd</h3>
+            <span class="year">2007</span>
+            <p>Mračni mjuzikl o berberinu koji traži osvetu.</p>
+        </article>
+
+        <article class="movie-card" tabindex="0">
+            <h3>Alice in Wonderland</h3>
+            <span class="year">2010</span>
+            <p>Fantastična priča o Alice i čudesnom svijetu.</p>
+        </article>
+
+        <article class="movie-card" tabindex="0">
+            <h3>Frankenweenie</h3>
+            <span class="year">2012</span>
+            <p>Animirana priča o dječaku koji oživljava svog psa.</p>
+        </article>
+
+        <article class="movie-card" tabindex="0">
+            <h3>Dark Shadows</h3>
+            <span class="year">2012</span>
+            <p>Fantastična komedija o vampiru Barnabasu Collinsu.</p>
+        </article>
+
+        <article class="movie-card" tabindex="0">
+            <h3>Big Eyes</h3>
+            <span class="year">2014</span>
+            <p>Biografska drama o umjetnici Margaret Keane.</p>
+        </article>
+
+        <article class="movie-card" tabindex="0">
+            <h3>Dumbo</h3>
+            <span class="year">2019</span>
+            <p>Priča o malom slonu koji otkriva da može letjeti.</p>
+        </article>
+
+        <article class="movie-card" tabindex="0">
+            <h3>Wednesday</h3>
+            <span class="year">2022</span>
+            <p>Mračna serija o Wednesday Addams.</p>
+        </article>
+
+        <article class="movie-card" tabindex="0">
+            <h3>Beetlejuice Beetlejuice</h3>
+            <span class="year">2024</span>
+            <p>Nastavak kultnog filma iz 1988. godine.</p>
+        </article>
+
+    </section>
+
+    <h2 class="section-title" id="gallery">
+        <span>Tim Burton</span> – malo drugačiji
+    </h2>
+
+    <section class="gallery">
+
+        <figure>
+            <img
+                src="https://compass-media.vogue.it/photos/630663def6c389c3eeaa8561/master/w_1600%2Cc_limit/73632163"
+                alt="Tim Burton"
+                loading="lazy"
+            >
+            <figcaption>Tim Burton u mlađim danima.</figcaption>
+        </figure>
+
+        <figure>
+            <img
+                src="https://br.web.img3.acsta.net/r_1280_720/img/2c/c4/2cc4ccb6d1135bec303831b21f6521f2.jpg"
+                alt="Tim Burton"
+                loading="lazy"
+            >
+            <figcaption>Tim Burton i njegov prepoznatljivi stil.</figcaption>
+        </figure>
+
+    </section>
+
+    <h2 class="section-title" id="career">
+        Njegova <span>karijera</span>
+    </h2>
+
+    <section class="timeline">
+
+        <ul>
+            <li><strong>1958.</strong> Rođen u Burbanku u Kaliforniji.</li>
+            <li><strong>1985.</strong> Režira Pee-wee's Big Adventure.</li>
+            <li><strong>1988.</strong> Postaje poznat zahvaljujući filmu Beetlejuice.</li>
+            <li><strong>1989.</strong> Režira film Batman.</li>
+            <li><strong>1990.</strong> Snima Edward Scissorhands.</li>
+            <li><strong>2005.</strong> Objavljuje Corpse Bride i Charlie and the Chocolate Factory.</li>
+            <li><strong>2022.</strong> Režira seriju Wednesday.</li>
+            <li><strong>2024.</strong> Vraća se svijetu Beetlejuicea.</li>
+        </ul>
+
+        <figure class="timeline-quote">
+            <blockquote>
+                <p>
+                    Tim Burton dobio je zvijezdu na holivudskoj
+                    Stazi slavnih 3. septembra 2024. godine.
+                </p>
+            </blockquote>
+            <figcaption>— Hollywood Walk of Fame</figcaption>
+        </figure>
+
+    </section>
+
+</div>
+    <section class="music-section">
+    <h2 class="section-title">Halloween Background Music</h2>
+    <iframe
+        src="https://www.youtube-nocookie.com/embed/Wi0eZkjF5-4"
+        title="Halloween Background Music"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+    </iframe>
+</section>
+<footer id="footer">
+    <h2>Želiš saznati više?</h2>
+
+    <p>
+        Otkrij još zanimljivosti o ovom neobičnom filmskom stvaratelju.
+    </p>
+
+    <a
+        href="https://en.wikipedia.org/wiki/Tim_Burton"
+        id="tribute-link"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Pročitaj više o Timu Burtonu na Wikipediji
+    </a>
+
+    <a
+        class="ghost-button"
+        href="https://www.imdb.com/name/nm0000318/"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <span>Explore More</span>
+    </a>
+
+    <p>© 2026 Tim Burton Tribute Page</p>
+</footer>
+
+</main>
+
+<script>
+/* PRETRAGA FILMOVA */
+
+document.querySelectorAll(".movie-card").forEach(function(card) {
+
+    card.setAttribute("role", "link");
+
+    function openMovieSearch() {
+        const title = card.querySelector("h3").textContent.trim();
+        const year = card.querySelector(".year").textContent.trim();
+
+        const search = title + " " + year;
+
+        window.open(
+            "https://www.google.com/search?q=" + encodeURIComponent(search),
+            "_blank",
+            "noopener"
+        );
+    }
+
+    card.addEventListener("click", openMovieSearch);
+
+    card.addEventListener("keydown", function(event) {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openMovieSearch();
+        }
+    });
+});
+
+/* SELECT DROPDOWN NAVIGACIJA */
+
+document.getElementById("sectionSelect").addEventListener("change", function() {
+
+    const section = this.value;
+
+    if (section) {
+        document.getElementById(section).scrollIntoView({
+            behavior: "smooth"
+        });
+
+        this.value = "";
+    }
+});
+
+/* ZATVARANJE HAMBURGER I SIDEBAR MENIJA */
+
+document.querySelectorAll("#menu a, #sidebarMenu a").forEach(function(link) {
+
+    link.addEventListener("click", function() {
+        document.getElementById("hamburgerCheck").checked = false;
+        document.getElementById("sidebarCheck").checked = false;
+    });
+
+});
+</script>
+
+</body>
+</html>
